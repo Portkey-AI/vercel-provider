@@ -40,6 +40,21 @@ const llmClient = createPortkey(
 console.log(response)
 ```
 
+## Image generation example
+
+```ts
+const response = await generateImage({
+  model: llmClient.imageModel(model),
+  prompt:
+    "A playful dog riding a skateboard, showcasing a fun and energetic vibe. The dog is a medium-sized breed with a joyful expression, wearing a colorful bandana.",
+  n: 1,
+  size: "1024x1024" as `${number}x${number}`,
+  aspectRatio: "1:1" as `${number}:${number}`,
+});
+```
+
+response.images returned by the `generateImage` method is either an array of base64 strings or an array of bytes (Uint8Array).
+
 ## Documentation
 
 Please check out the **[Portkey provider documentation](https://docs.portkey.ai/docs/integrations/libraries/vercel)** for more information.
